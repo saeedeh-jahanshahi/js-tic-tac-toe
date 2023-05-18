@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <script src="assets/scripts/settings.js" defer></script>
+
+    <title>tic tac toe game</title>
+  </head>
+  <body class="centering-content">
+    <main
+      class="vertical-grid bg-primary--800 text-neutral--300 set-max-width border-radius box-shadow pd--200"
+      style="--shadow-color: var(--clr-primary--900)"
+    >
+      <h1 class="fs--900">pick player mark</h1>
+      <ul
+        role="list"
+        class="slider-container inline-flex bg-primary--850 border-radius"
+        style="--gap-size: 0;"
+      >
+        <div class="slider border-radius bg-neutral--300"></div>
+        <li class="inline-flex--item centering-content" data-marker="0">
+          <a role="button" href="#">
+            <svg
+              class="icon"
+              data-color="neutral"
+              data-size="small"
+              data-stroke="normal"
+            >
+              <use xlink:href="assets/img/icons.svg#cross_icon"></use>
+            </svg>
+          </a>
+        </li>
+        <li class="inline-flex--item centering-content" data-marker="1">
+          <a href="#" role="button"
+            ><svg
+              class="icon"
+              data-color="primary"
+              data-size="small"
+              data-stroke="normal"
+            >
+              <use xlink:href="assets/img/icons.svg#circle_icon"></use></svg
+          ></a>
+        </li>
+      </ul>
+      <p>remember, x goes first</p>
+    </main>
+    <footer class="set-max-width bg-primary--850">
+      <ul role="list" id="button-list" class="vertical-grid fs--600">
+        <li>
+          <a
+            href="start.html?1"
+            role="button"
+            class="bg-accenty--400 box-shadow text-primary--850 border-radius"
+            style="--shadow-color: var(--clr-accenty--600)"
+            data-game-type="1"
+            >new game (vs cpu)</a
+          >
+        </li>
+        <li>
+          <a
+            href="start.html?2"
+            role="button"
+            class="bg-accentb--500 box-shadow text-primary--850 border-radius"
+            style="--shadow-color: var(--clr-accentb--600)"
+            data-game-type="2"
+            >new game (vs player)</a
+          >
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>

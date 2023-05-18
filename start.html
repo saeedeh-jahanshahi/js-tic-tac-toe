@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/styles/main.css"/>
+    <script src="assets/scripts/StartGame.js" type="module"></script>
+    <title>tic tac toe game</title>
+  </head>
+  <body class="centering-content">
+    <template id="winner-template">
+      <svg
+              class="icon"
+              data-color=""
+              data-size="medium"
+              data-stroke="normal"
+            >
+              <use xlink:href=""></use>
+            </svg>
+    </template>
+    <template id="player-icon-template">
+      <svg class="icon" data-color="" data-size="big" data-stroke="normal">
+        <use xlink:href=""></use>
+      </svg>
+    </template>
+    <div class="backdrop hidden"></div>
+    <header class="triple-column set-max-width">
+      <section class="moodel bg-primary--800 centering-content pd--300 hidden" id="reset-moodel">
+        <h1 class="text-neutral--300 fs--950">restart game?</h1>
+        <ul
+          role="list"
+          class="inline-flex"
+          style="--gap-size: var(--size--200)"
+        >
+          <li>
+            <a
+              role="button"
+              href="#"
+              class="bg-neutral--300 box-shadow text-primary--800 border-radius"
+              style="--shadow-color: var(--clr-neutral--500)" id="cancel-reset-btn"
+              >no, cancel</a
+            >
+          </li>
+          <li>
+            <a
+              role="button"
+              href="#"
+              class="bg-accenty--400 box-shadow text-primary--800 border-radius"
+              style="--shadow-color: var(--clr-accenty--600)" id="confirm-reset-btn"
+              >yes, restart</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="moodel bg-primary--800 centering-content pd--300 hidden" id="result-moodel">
+        <h1 class="text-neutral--300 fs--700" id="result-moodel__header"></h1>
+        <p class="set-color fs--950 inline-flex" data-gap="small">
+          <span id="result-icon">
+             </span
+          ><span>takes the round</span>
+        </p>
+        <ul
+          role="list"
+          class="inline-flex"
+          style="--gap-size: var(--size--200)"
+        >
+          <li>
+            <a
+              role="button"
+              href="settings.html"
+              class="bg-neutral--300 box-shadow text-primary--800 border-radius"
+              style="--shadow-color: var(--clr-neutral--500)"
+              >quit</a
+            >
+          </li>
+          <li>
+            <a
+              role="button"
+              href="#"
+              class="bg-accenty--400 box-shadow text-primary--800 border-radius" id="next-round-btn"
+              style="--shadow-color: var(--clr-accenty--600)"
+              >next round</a
+            >
+          </li>
+        </ul>
+      </section>
+      <ul role="list" class="inline-flex" data-gap="small">
+        <li>
+          <svg
+            class="icon"
+            data-color="accentb"
+            data-size="medium"
+            data-stroke="normal"
+          >
+            <use xlink:href="assets/img/icons.svg#cross_icon"></use>
+          </svg>
+        </li>
+        <li>
+          <svg
+            class="icon"
+            data-color="accenty"
+            data-size="medium"
+            data-stroke="normal"
+          >
+            <use xlink:href="assets/img/icons.svg#circle_icon"></use>
+          </svg>
+        </li>
+      </ul>
+      <div
+        class="inline-flex text-neutral--300 bg-primary--800 box-shadow turn-container box-shadow border-radius"
+        style="--shadow-color: var(--clr-primary--900)"
+        data-gap="normal"
+        data-hcentering
+      >
+      <span id="turn-icon">
+        <svg
+          class="icon"
+          data-color="neutral"
+          data-size="small"
+          data-stroke="normal"
+        >
+          <use xlink:href="assets/img/icons.svg#cross_icon"></use>
+        </svg>
+      </span>
+        <span>turn</span>
+      </div>
+      <a
+        href="#"
+        role="button"
+        class="btn--return bg-neutral--300 box-shadow border-radius" id="reload-btn"
+        style="--shadow-color: var(--clr-neutral--500)"
+      >
+        <svg
+          class="icon"
+          data-color="primary"
+          data-size="medium"
+          data-stroke="thick"
+        >
+          <use
+            xlink:href="assets/img/icons.svg#211812_refresh_empty_icon"
+          ></use>
+        </svg>
+      </a>
+    </header>
+    <main class="set-max-width">
+      <ul role="list" class="triple-column" id="game-board">
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="1"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="2"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="3"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="4"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="5"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="6"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="7"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="8"
+        ></li>
+        <li
+          class="square bg-primary--800 inline-flex box-shadow border-radius"
+          style="--shadow-color: var(--clr-primary--900)"
+          data-hcentering data-id="9"
+        ></li>
+      </ul>
+    </main>
+    <footer class="set-max-width">
+      <ul role="list" class="triple-column footer-list">
+        <li class="bg-accentb--500 border-radius text-primary--850" id="footer-list--0">
+          <p>x</p>
+          <p data-result-id="0">0</p>
+        </li>
+        
+        <li class="bg-accenty--400 border-radius text-primary--850" id="footer-list--1">
+          <p>O</p>
+          <p data-result-id="1">0</p>
+        </li>
+        <li class="bg-neutral--300 border-radius text-primary--850" id="footer-list--2">
+          <p>ties</p>
+          <p data-result-id="2">0</p>
+        </li>
+      </ul>
+    </footer>
+  </body>
+</html>
